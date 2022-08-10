@@ -13,7 +13,7 @@ CREATE TABLE transaction
 (
     id  integer AUTO_INCREMENT PRIMARY KEY,
     customer_id  integer NOT NULL,
-    amount number default 0.0,
+    amount integer default 0,
     created_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (customer_id) REFERENCES customer(id)
 );
@@ -22,6 +22,6 @@ CREATE TABLE reward_points
 (
     id  integer AUTO_INCREMENT PRIMARY KEY,
     transaction_id  integer NOT NULL,
-    points number default 0.0,
+    points integer default 0,
     FOREIGN KEY (transaction_id) REFERENCES transaction(id)
 );
