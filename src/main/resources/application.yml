@@ -10,3 +10,7 @@ management:
     web:
       exposure:
         include: health
+
+application:
+  title: Rewards Points API
+  version: 0.0.1

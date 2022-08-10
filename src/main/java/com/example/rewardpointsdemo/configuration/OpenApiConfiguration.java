@@ -13,7 +13,7 @@ public class OpenApiConfiguration {
     public OpenAPI api() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Rewards Demo API")
+                        .title("Rewards Points API")
                         .description("This API demonstrates the basic rewards program")
                         .version("v0.0.1")
                         .contact(new Contact()
