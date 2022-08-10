@@ -14,7 +14,6 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1")
-@Validated
 @Slf4j
 public class RewardPointsController {
 

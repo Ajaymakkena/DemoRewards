@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class RewardPointsRequest implements Serializable {
+public class RewardPointsRequest {
 
     @NotNull(message = "Amount cannot be Null")
     @Min(value = 1, message = "Amount should be greater than 0")

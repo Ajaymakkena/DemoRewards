@@ -12,7 +12,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class RewardPoints implements Serializable {
+public class RewardPoints {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
