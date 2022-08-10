@@ -27,7 +27,7 @@ public class RewardPointsTableUpdater {
 
     @EventListener(ApplicationReadyEvent.class)
     public void updateRewardPointsTable() {
-
+        //Listener which calculates reward points based on transactions
         List<RewardPoints> rewardPointsList = transactionRepository.findAll().stream().map(transaction -> {
             RewardPointsResponse rewardPointsResponse = rewardPointsService.getRewardPoints(transaction.getAmount());
             return RewardPoints.builder().points(rewardPointsResponse.getRewardPoints()).transaction(transaction).build();

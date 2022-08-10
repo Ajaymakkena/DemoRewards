@@ -20,6 +20,7 @@ public class RewardsPointsExceptionHandler {
 
     @ExceptionHandler(BindException.class)
     public ResponseEntity handleBindException(BindException ex, HttpServletRequest request) {
+        //Handling Bad request exception
         log.error("Error occured while processing request - {}", ex.getMessage());
 
         ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST, request.getRequestURI(), "Validation Error", ex);
@@ -35,6 +36,7 @@ public class RewardsPointsExceptionHandler {
 
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity handleConstraintViolationException(ConstraintViolationException ex, HttpServletRequest request) {
+        //Handling constraint violation exception
         log.error("Error occured while processing request - {}", ex.getMessage());
 
         ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST, request.getRequestURI(), "Validation Error", ex);
@@ -50,6 +52,7 @@ public class RewardsPointsExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity handleException(Exception ex, HttpServletRequest request) {
+        //Handling Any Other exception
         log.error("Error occured while processing request - {}", ex.getMessage());
 
         ApiError apiError = new ApiError(HttpStatus.INTERNAL_SERVER_ERROR, request.getRequestURI(), "Error", ex);

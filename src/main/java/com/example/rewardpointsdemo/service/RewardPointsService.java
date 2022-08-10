@@ -60,7 +60,10 @@ public class RewardPointsService {
             customers.addAll(customerRepository.findAll());
         }
 
+        //Retains only 3 months records
         removeTransactions(customers);
+
+        //Creating a map grouping by customer name and internally another map of reward points grouped by month
         Map<String, Map<Month, List<Integer>>> customerByMonthMap = new HashMap<>();
         for(Customer customer : customers) {
 
@@ -79,6 +82,7 @@ public class RewardPointsService {
             customerByMonthMap.put(customer.getName(), pointsByMonthMap);
         }
 
+        //Calculating per month reward points per customer
         List<CustomersByMonth> customersList = new ArrayList();
         for(String name: customerByMonthMap.keySet()) {
             CustomersByMonth customersObj = new CustomersByMonth();
@@ -118,7 +122,10 @@ public class RewardPointsService {
             customers.addAll(customerRepository.findAll());
         }
 
+        //Retains only 3 months records
         removeTransactions(customers);
+
+        //calculating sum of all reward points per customer
         for(Customer customer : customers) {
             CustomersBySum customersBySum = new CustomersBySum();
             customersBySum.setCustomerName(customer.getName());
