@@ -20,3 +20,6 @@ management:
 application:
   title: Rewards Points API
   version: 0.0.1
+  amounts:
+    amount-one: 50
+    amount-two: 100
