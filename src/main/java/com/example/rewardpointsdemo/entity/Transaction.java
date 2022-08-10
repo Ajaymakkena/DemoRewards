@@ -1,9 +1,6 @@
 package com.example.rewardpointsdemo.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,7 +8,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "TRANSACTION")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -24,6 +22,10 @@ public class Transaction implements Serializable {
     private int amount;
 
     private LocalDateTime createdDate;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customer;
 
     @OneToOne(fetch = FetchType.LAZY,
             cascade = CascadeType.ALL,

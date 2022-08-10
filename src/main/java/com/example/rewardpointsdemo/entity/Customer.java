@@ -1,9 +1,6 @@
 package com.example.rewardpointsdemo.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -13,14 +10,15 @@ import java.util.Set;
 
 @Entity
 @Table(name = "CUSTOMER")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Customer implements Serializable {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @NotNull
@@ -34,7 +32,8 @@ public class Customer implements Serializable {
 
     private LocalDateTime DeletedDate;
 
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinColumn(name="CUSTOMER_ID")
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "customer")
     private Set<Transaction> transactions;
 }

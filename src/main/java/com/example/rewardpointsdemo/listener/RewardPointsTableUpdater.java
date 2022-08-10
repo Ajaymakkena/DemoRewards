@@ -1,6 +1,7 @@
 package com.example.rewardpointsdemo.listener;
 
 import com.example.rewardpointsdemo.entity.RewardPoints;
+import com.example.rewardpointsdemo.model.RewardPointsResponse;
 import com.example.rewardpointsdemo.repository.RewardPointsRepository;
 import com.example.rewardpointsdemo.repository.TransactionRepository;
 import com.example.rewardpointsdemo.service.RewardPointsService;
@@ -28,8 +29,8 @@ public class RewardPointsTableUpdater {
     public void updateRewardPointsTable() {
 
         List<RewardPoints> rewardPointsList = transactionRepository.findAll().stream().map(transaction -> {
-            Integer points = rewardPointsService.getRewardPoints(transaction.getAmount());
-            return RewardPoints.builder().points(points).transaction(transaction).build();
+            RewardPointsResponse rewardPointsResponse = rewardPointsService.getRewardPoints(transaction.getAmount());
+            return RewardPoints.builder().points(rewardPointsResponse.getRewardPoints()).transaction(transaction).build();
         }).collect(Collectors.toList());
 
         rewardPointsRepository.saveAll(rewardPointsList);
