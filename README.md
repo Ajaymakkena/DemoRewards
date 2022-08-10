@@ -13,16 +13,16 @@ The project uses H2 database where the dataset is stored and used to serve the e
 The following is the dataset used for the app:
 
 **Customers**
-![](src\main\resources\documentation\images\customer.PNG)
+![](customer.PNG)
 
 **Transaction**
-![](src\main\resources\documentation\images\transaction.PNG)
+![](transaction.PNG)
 
 The app uses flyway migration to migrate this data to H2 database. After the data is migrated and app is started reward points 
 are calculated for these transactions and are added to reward points table. It looks like below:
 
 **Reward Points**
-![](src\main\resources\documentation\images\reward_points.PNG)
+![](reward_points.PNG)
 
 All the properties needed to run the app are externalized in properties file and by default local property is enabled. 
 
@@ -34,5 +34,5 @@ To run the app:
 
 ## Unit tests
 To run unit tests run RewardPointsDemoControllerTest.java class. All the tests have been written in junit 5.
-![](src\main\resources\documentation\images\test_cases.PNG)
+![](test_cases.PNG)
  
