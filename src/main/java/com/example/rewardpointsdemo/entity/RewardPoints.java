@@ -20,7 +20,7 @@ public class RewardPoints implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
-    private Integer points;
+    private int points;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "transaction_id")

@@ -7,15 +7,15 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class RewardPointsService {
 
-    public Integer getRewardPoints(Integer amount) {
-        Integer rewardPoints = 0;
+    public int getRewardPoints(int amount) {
+        int rewardPoints = 0;
 
         if(amount > 50) {
-            rewardPoints += (amount - 50) * 1;
+            rewardPoints += (amount - 50);
         }
 
         if(amount > 100) {
-            rewardPoints += (amount - 100) * 1;
+            rewardPoints += (amount - 100);
         }
 
         return rewardPoints;
